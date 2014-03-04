@@ -1,10 +1,10 @@
 package samples;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-// http://www.mkyong.com/java/java-properties-file-examples/
 public class L_PropLoad {
 
 	public static void main(String[] args) throws IOException {
@@ -17,13 +17,20 @@ public class L_PropLoad {
 		prop.load(in);
 
 		String website = prop.getProperty("website");
-		int number = Integer.parseInt(prop.getProperty("number"));
-		String gh = prop.getProperty("lop");
+		String numberString = prop.getProperty("number");
+
+		int number = Integer.parseInt(numberString);
+		String url = prop.getProperty("URL");
 
 		number = number + 10;
 
 		System.out.println("The website is: " + website);
 		System.out.println("The number+10 is " + number);
+
+		System.out.println("URL is " + url);
+
+		// TODO make the property file to be fetched from classpath.
+		// TODO Reference : http://www.mkyong.com/java/java-properties-file-examples/
 
 	}
 }
